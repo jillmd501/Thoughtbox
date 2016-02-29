@@ -1,36 +1,15 @@
-$(document).ready(function(){
-  console.log("hi")
-    getLinks();
-});
-
-function getLinks(){
-  $.getJSON('/api/v1/links', function(data) {
-    $.each(data, function(index, link){
-      showLinks(link)
-    })
-  });
-};
-
-function titleEditable(){
-  $('#link-listing').delegate('#title-editable', 'keydown', function(event) {
-    if(event.which == 13 || event.keyCode == 13){
-      var $title = event.currentTarget.textContent
-      var $id = $(this).closest('.link').attr('data-id')
-      var params = {
-        link: {
-          title: $title,
-          url: $url
-        }
-      }
-      event.preventDefault();
-      this.blur();
-      $.ajax({
-        type: 'PUT',
-        url: '/api/v1/links/' + $id + '.json',
-        data: params,
-        success: function(link){
-        }
-      })
-    }
-  })
-}
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require_tree .

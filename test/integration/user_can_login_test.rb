@@ -4,7 +4,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     test 'existing user can login' do
         login_user
 
-        assert page.has_content?("Welcome, Clarence!")
+        assert page.has_content?("Welcome")
       end
 
     test 'guest cannot login when unregistered' do
