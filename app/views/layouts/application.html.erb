@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thoughtbox</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1> Create Account </h1>
+
+<%= form_for(User.new) do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "Create Account" %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>
