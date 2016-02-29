@@ -14,7 +14,22 @@
        <a class="btn blue">Unread</a>
      </div>
 
-     <div class="row">
-       <ul id="link-listing"></ul>
-     </div>
+  <table class="highlight" id="link-listing">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Url</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @links.each do |link| %>
+      <tr>
+        <th><%= link.title %></th>
+        <th><%=link.url%></a></th>
+        <th id="<%=link.id%>-edit-read"><%= link.read.to_s %></th>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
