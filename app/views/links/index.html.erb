@@ -20,17 +20,21 @@
         <th>Title</th>
         <th>Url</th>
         <th>Status</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Delete?</th>
       </tr>
     </thead>
     <tbody>
       <% @links.each do |link| %>
       <tr>
-        <th><%= link.title %></th>
-        <th><%=link.url%></a></th>
-        <th id="<%=link.id%>-edit-read"><%= link.read.to_s %></th>
-        <th><%= link_to "Edit" %></th>
+        <th contenteditable='true' class='title-editable'><%= link.title %></th>
+        <th contenteditable='true'class='url-editable'><%=link.url%></a></th>
+        <th id="<%=link.id%>-edit-read"><%
+          if link.read %>
+            Read
+          <% else %>
+            Unread
+          <% end %>
+        </th>
         <th><%= link_to "Delete" %></th>
       </tr>
       <% end %>

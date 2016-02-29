@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  console.log("hi")
     getLinks();
 });
 
@@ -10,40 +11,26 @@ function getLinks(){
   });
 };
 
-function markAsRead(id) {
-  $('#mark-as-read' + id).on('click', function(){
-    event.preventDefault();
-
-    $.getJSON('/api/links/' + id, function(link){
-      var newStatus = function(){
-        if (link.read === 'read'){
-          return 'read'
-        } else { return 'unread'}
-      };
-
+function titleEditable(){
+  $('#link-listing').delegate('#title-editable', 'keydown', function(event) {
+    if(event.which == 13 || event.keyCode == 13){
+      var $title = event.currentTarget.textContent
+      var $id = $(this).closest('.link').attr('data-id')
+      var params = {
+        link: {
+          title: $title,
+          url: $url
+        }
+      }
+      event.preventDefault();
+      this.blur();
       $.ajax({
         type: 'PUT',
-        url: '/api/links/' + id + '.json',
-        data: {
-          link: {read: newStatus}
-        },
-        success: function(idea){
-          $('#mark-as-read' + id).html(newStatus);
+        url: '/api/v1/links/' + $id + '.json',
+        data: params,
+        success: function(link){
         }
       })
-    })
+    }
   })
-}
-
-function searchLinks() {
-  $("#filter").keyup(function(){
-		var filter = $(this).val();
-		$("#link-listing").children().each(function(){
-			if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-				$(this).fadeOut();
-			} else {
-				$(this).show();
-			}
-		});
-	});
 }
