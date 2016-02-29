@@ -13,6 +13,7 @@
   </div>
 <% end %>
 
+
   <nav>
     <div class="nav-wrapper">
       <%= link_to "ThoughtBox", root_path, class: "brand-logo center", id: "logo" %>
@@ -27,6 +28,10 @@
         <% end %>
   </div>
 </nav>
+<% if current_user %>
+  <h3 class='center'> Welcome, <%= current_user.username %>! </h3>
+<% end %>
+
 <%= yield %>
 
 
