@@ -13,9 +13,9 @@ function renderLinks(link) {
       "<h4>" + link.title + "</h4>" +
       "<h4>" + link.url + "</h4>" +
       "<h5 contentEditable=false id='link-quality-" + link.read + "'>" + "</h5>" +
-      "<div class='btn btn-default' id='delete-link'>Delete</div>" +
-      "<div class='btn btn-default' id='edit-link'>Edit</div>" +
-      "<div class='btn btn-default' id='save-link'>Save</div>" +
+      "<div class='btn blue' id='delete-link'>Delete</div>" +
+      "<div class='btn blue' id='edit-link'>Edit</div>" +
+      "<div class='btn blue' id='save-link'>Save</div>" +
     "</div>"
     )
   }
