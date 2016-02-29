@@ -1,43 +1,39 @@
+<h1 class='center-align'>ThoughtBox of FUN</h1>
+
 <div class="container">
-  <h3>What brilliant idea do you have today <%= @current_user %>?</h3>
-  <%= form_for Link.new do |f| %>
-    <%= f.label :url %>
-    <%= f.text_field :url %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.submit "Submit", class: "btn blue" %>
-  <% end %>
+  <br>
+  <div class='row'>
+    <h3 class= 'col s6'> Thoughts?</h3>
+    <h3 class='col s6'>Or search for inspiration here... </h3>
+  </div>
+  <div class="row">
+    <div class="col s6">
+      <div class="input-field">
+        <input class="validate" type="text" id="link-title" placeholder="New Title">
+        <label for="link-title"></label>
+      </div>
+      <div class="input-field">
+        <input class="form-control" type="text" id="link-url" placeholder="New Description">
+        <label for="link-url"></label>
+      </div>
+      <br><br>
+      <input class="btn btn-default" id="create-link" type="button" name="submit" value="New Idea"></input>
+    </div>
+    <div class="col s6">
+      <div class="input-field">
+        <input class="validate" type="text" id="filter" placeholder="Search">
+        <label for="filter"></label>
+        <br><br><br><br><br><br>
 
-  <div class="row center extra-btns">
-       <a class="btn blue">Sort</a>
-       <a class="btn blue">Read</a>
-       <a class="btn blue">Unread</a>
-     </div>
-
-  <table class="highlight" id="link-listing">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Url</th>
-        <th>Status</th>
-        <th>Delete?</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @links.each do |link| %>
-      <tr>
-        <th contenteditable='true' class='title-editable'><%= link.title %></th>
-        <th contenteditable='true'class='url-editable'><%=link.url%></a></th>
-        <th id="<%=link.id%>-edit-read"><%
-          if link.read %>
-            Read
-          <% else %>
-            Unread
-          <% end %>
-        </th>
-        <th class="delete-link"><%= link_to "Delete"%></th>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <input class="btn btn-default" id="create-link" type="button" name="submit" value="Search"></input>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h3 class='center-align'> Previous BRILLIANT links: </h3>
+  <div class="row">
+    <div class="col s10">
+      <ul id="latest-links"></ul>
+    </div>
+  </div>
 </div>

@@ -30,7 +30,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     test 'authenticated user can logout' do
       login_user
 
-      assert page.has_content?("Welcome, Clarence!")
+      assert page.has_content?("Welcome")
 
       click_link "Logout"
 
