@@ -1,0 +1,20 @@
+<div class="container">
+  <h3>What brilliant idea do you have today <%= @current_user %>?</h3>
+  <%= form_for Link.new do |f| %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit "Submit", class: "btn blue" %>
+  <% end %>
+
+  <div class="row center extra-btns">
+       <a class="btn blue">Sort</a>
+       <a class="btn blue">Read</a>
+       <a class="btn blue">Unread</a>
+     </div>
+
+     <div class="row">
+       <ul id="link-listing"></ul>
+     </div>
+</div>
