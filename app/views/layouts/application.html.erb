@@ -8,16 +8,15 @@
 </head>
 <body>
 
-<h1> Create Account </h1>
+  <div>
+    <% if current_user %>
+        <%= link_to "Logout", logout_path, method: :delete%>
+      <% elsif %>
+        <%= link_to "Login", login_path %>
+      <% end %>
+  </div>
 
-<%= form_for(User.new) do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Create Account" %>
-<% end %>
-
+  <%= link_to "Create Account", new_user_path %>
 
 <%= yield %>
 
