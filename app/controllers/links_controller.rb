@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  
   def index
     @links = current_user.links
   end
@@ -20,16 +21,16 @@ class LinksController < ApplicationController
   end
 
   def edit
-    @link = Link.find(params[:id])
+    @link = Link.find(params["id"])
   end
 
   def update
-    link = Link.find(params[:id])
+    @link = Link.find(params[:id])
     if link.update(link_params)
       flash[:messages] = "Link Updated"
       redirect_to links_path
     else
-      flash.now[:errors] = link.erros.full_messages.join(", ")
+      flash.now[:errors] = "A link must have a title and url"
       render :edit
     end
   end
