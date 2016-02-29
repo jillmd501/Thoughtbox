@@ -12,7 +12,7 @@ function renderLinks(link) {
     "<div class='link' id='link-id-" + link.id + "' data-id='" + link.id + "'> " +
       "<h4>" + link.title + "</h4>" +
       "<h4>" + link.url + "</h4>" +
-      "<h5 contentEditable=false id='link-quality-" + link.read + "'>" + "</h5>" +
+      "<h5 contentEditable=false>Read yet? (t/f):   " + link.read + "</h5>" +
       "<div class='btn blue' id='delete-link'>Delete</div>" +
       "<div class='btn blue' id='edit-link'>Edit</div>" +
       "<div class='btn blue' id='save-link'>Save</div>" +
