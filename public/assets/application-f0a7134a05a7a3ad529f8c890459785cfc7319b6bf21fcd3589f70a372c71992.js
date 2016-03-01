@@ -18454,7 +18454,6 @@ Picker.extend( 'pickadate', DatePicker )
 
 $(document).ready(function(){
     fetchLinks();
-    createLink();
     deleteLink();
     editLink();
     searchLinks();
