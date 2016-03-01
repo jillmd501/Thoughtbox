@@ -1,6 +1,5 @@
 $(document).ready(function(){
     fetchLinks();
-    createLink();
     deleteLink();
     editLink();
     searchLinks();
