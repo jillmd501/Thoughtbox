@@ -18454,7 +18454,6 @@ Picker.extend( 'pickadate', DatePicker )
 
 $(document).ready(function(){
     fetchLinks();
-    renderLinks();
     createLink();
     deleteLink();
     editLink();
@@ -18464,6 +18463,7 @@ $(document).ready(function(){
 
 function renderLinks(link) {
   $("#latest-links").prepend(
+    "<div class='link' id='link-id-" + link.id + "' data-id='" + link.id + "'> " +
       "<h4>" + link.title + "</h4>" +
       "<h4>" + link.url + "</h4>" +
       "<h5 contentEditable=false>Read yet? (t/f):   " + link.read + "</h5>" +
