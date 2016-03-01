@@ -38,32 +38,6 @@ function fetchLinks() {
   })
 }
 
-function createLink() {
-  $("#create-link").on("click", function() {
-    var linkParams = {
-      link: {
-        title: $("#link-title").val(),
-        body: $("#link-body").val()
-      }
-    }
-
-  $("#link-title").val('')
-  $("#link-body").val('')
-
-  $.ajax({
-    type:    "POST",
-    url:     "/api/v1/links.json",
-    data:    linkParams,
-    success: function(newLink) {
-      renderLinks(newLink)
-    },
-    error: function(xhr) {
-      console.log(xhr.responseText)
-    }
-    })
-  })
-};
-
   function deleteLink() {
     $('#latest-links').on('click', '#delete-link', function() {
       var $link = $(this).closest('.link')

@@ -8,16 +8,14 @@
   </div>
   <div class="row">
     <div class="col s6">
-      <div class="input-field">
-        <input class="validate" type="text" id="link-title" placeholder="New Title">
-        <label for="link-title"></label>
-      </div>
-      <div class="input-field">
-        <input class="form-control" type="text" id="link-url" placeholder="New URL">
-        <label for="link-url"></label>
-      </div>
-      <br><br>
-      <input class="btn blue" id="create-link" type="button" name="submit" value="New Idea"></input>
+      <%= form_for(Link.new) do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+        <%= f.submit "Create Link" %>
+      <% end %>
+
     </div>
     <div class="col s6">
       <div class="input-field">
